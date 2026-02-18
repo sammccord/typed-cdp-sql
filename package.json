@@ -1,0 +1,43 @@
+{
+  "name": "typed-cdp-sql",
+  "version": "0.1.0",
+  "description": "Pure TypeScript compile-time type inference for CDP Data API SQL queries",
+  "type": "module",
+  "module": "index.ts",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "bun": "./index.ts",
+      "default": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.ts"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "cdp",
+    "coinbase",
+    "sql",
+    "typescript",
+    "type-inference",
+    "evm",
+    "blockchain"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
