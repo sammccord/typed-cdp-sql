@@ -5,8 +5,23 @@ Pure TypeScript compile-time type inference for [CDP Data API](https://docs.cdp.
 ```typescript
 import type { TypedQuery } from 'typed-cdp-sql';
 
-type Result = TypedQuery<"SELECT block_number, miner FROM base.blocks LIMIT 10">;
-// { result: Array<{ block_number: `${number}`; miner: `0x${string}` }> }
+const sql = 'SELECT block_number, transaction_hash FROM base.transactions WHERE block_number > 1000000 LIMIT 10' as const;
+
+const res = await fetch('https://api.cdp.coinbase.com/platform/v2/data/query/run', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer <token>',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ sql }),
+});
+
+const data: TypedQuery<typeof sql> = await res.json();
+
+data.result[0].block_number;
+//                ^? `${number}`
+data.result[0].transaction_hash;
+//                ^? `0x${string}`
 ```
 
 ## Installation
@@ -21,7 +36,7 @@ Requires TypeScript >= 5.
 
 ## Usage
 
-### Basic SELECT
+`TypedQuery` takes any SQL string literal and infers the result row type:
 
 ```typescript
 import type { TypedQuery } from 'typed-cdp-sql';
