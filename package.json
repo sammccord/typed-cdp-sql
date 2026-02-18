@@ -1,6 +1,6 @@
 {
   "name": "typed-cdp-sql",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pure TypeScript compile-time type inference for CDP Data API SQL queries",
   "type": "module",
   "module": "index.ts",
