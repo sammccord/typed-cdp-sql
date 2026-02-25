@@ -1,6 +1,6 @@
 {
   "name": "typed-cdp-sql",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TypeScript type inference and query builder for CDP Data API SQL queries",
   "type": "module",
   "module": "index.ts",
