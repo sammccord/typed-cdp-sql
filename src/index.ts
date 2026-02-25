@@ -66,3 +66,6 @@ type ResolveSchema<S extends string, TableName extends keyof TableSchemas> =
 
 // Re-export schema types for advanced consumers
 export type { TableSchemas, BlocksSchema, EventsSchema, TransactionsSchema, EncodedLogsSchema, TransfersSchema } from './schema';
+
+// Re-export the query builder runtime API
+export * from './builder';

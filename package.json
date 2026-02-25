@@ -1,7 +1,7 @@
 {
   "name": "typed-cdp-sql",
   "version": "0.1.0",
-  "description": "Pure TypeScript compile-time type inference for CDP Data API SQL queries",
+  "description": "TypeScript type inference and query builder for CDP Data API SQL queries",
   "type": "module",
   "module": "index.ts",
   "types": "dist/index.d.ts",
@@ -9,7 +9,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "bun": "./index.ts",
-      "default": "./dist/index.d.ts"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./builder": {
+      "types": "./dist/src/builder/index.d.ts",
+      "bun": "./src/builder/index.ts",
+      "import": "./dist/src/builder/index.js",
+      "default": "./dist/src/builder/index.js"
     }
   },
   "files": [
